@@ -25,7 +25,9 @@ jobs:
       - name: Run Docker Container
         run: |
           ssh ${{ secrets.DEPUSER }}@${{ secrets.DEPIP }} "
-          cd /home/ubuntu/01
+          cd /home/ubuntu
+          mkdir -p 01
+          cd 01
           docker compose pull
           docker compose stop
           docker compose rm -f
