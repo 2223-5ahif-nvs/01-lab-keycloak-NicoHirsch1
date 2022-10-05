@@ -22,7 +22,6 @@ services:
       - "traefik.http.routers.keycloak.rule=Host(`nico.jakobrathberger.eu`)"
       - "traefik.http.routers.keycloak.entrypoints=websecure"
       - "traefik.http.routers.keycloak.tls.certresolver=myresolver"
-      - "traefik.http.services.keycloak.loadbalancer.server.port=8080"
     networks:
       - keycloak-network
     depends_on:
@@ -41,6 +40,7 @@ services:
       - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
       - "--certificatesresolvers.myresolver.acme.email=nico.hirsch.2004@gmail.com"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+      - "traefik.http.services.keycloak.loadbalancer.server.port=8080"
     ports:
       - "80:80"
       - "443:443"
