@@ -6,8 +6,6 @@ services:
       - ./keycloak-postgres.env
     container_name: keycloak-db
     restart: unless-stopped
-    ports:
-      - '5432:5432'
     volumes: 
       - ./keycloak-db:/var/lib/postgresql/data
     networks:
@@ -19,8 +17,6 @@ services:
     env_file:
       - ./keycloak-postgres.env
     entrypoint: /opt/keycloak/bin/kc.sh start --auto-build
-    ports:
-      - "8080:8080"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.keycloak.rule=Host(`nico.jakobrathberger.eu`)"
@@ -47,7 +43,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "8081:8080"
+      - "8080:8080"
     volumes:
       - "./letsencrypt:/letsencrypt"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
