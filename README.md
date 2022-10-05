@@ -1,3 +1,3 @@
 # Deployment
 
-When the docker compose is deployed to a server the keycloak is reachable [here](https://external.ink?to=/https://nico.jakobrathberger.eu/)
+When the docker compose is deployed to a server the keycloak is reachable <a href="https://nico.jakobrathberger.eu/" target="_blank">here</a>
