@@ -23,7 +23,7 @@ When the docker compose is deployed to a server the keycloak is reachable [here]
     -d 'username=admin&password=admin&grant_type=password' | jq --raw-output '.access_token' \
     )
    ```
-   this will store an access token in a terminal variable called `access_token`
+   this will store an access token in a environment variable called `access_token`
 3. Send a http request to one of the quarkus endpoints with either
    ```
    curl -v -X GET \       
